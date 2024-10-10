@@ -6,7 +6,7 @@ public class PizzaShooter : MonoBehaviour
 {
     public GameObject player;
     public float speed = 30f;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +18,7 @@ public class PizzaShooter : MonoBehaviour
     {
 
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        
 
         
         

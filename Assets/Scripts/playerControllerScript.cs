@@ -1,17 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    public GameObject projectilePrefab;
+    public GameObject sandwich;
+    public GameObject armut;
     public float horizontalInput;
 
     public float speed = 10;
+
+    public int armutCounter = 0;
     // Start is called before the first frame update
     void Start()
     {
-        
+        InvokeRepeating("armutCoolDown", 5, 5);
     }
 
     // Update is called once per frame
@@ -31,8 +35,22 @@ public class NewBehaviourScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+            object value = Instantiate(sandwich, transform.position, sandwich.transform.rotation);
         }
+        if (Input.GetKeyDown(KeyCode.C) && armutCounter >=1 )
+        {
+            object value = Instantiate(armut, transform.position, armut.transform.rotation);
+            armutCounter--;
+        }
+
+    }
+
+    public int armutCoolDown()
+    {
+      return armutCounter++;
         
     }
+
+
+
 }

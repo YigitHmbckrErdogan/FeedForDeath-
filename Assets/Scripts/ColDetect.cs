@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class colissionDetector : MonoBehaviour
 {
+    public int killCounter;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,8 @@ public class colissionDetector : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        killCounter++;
         Destroy(gameObject);
+        Debug.Log(killCounter);
     }
 }
